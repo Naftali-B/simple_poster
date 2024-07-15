@@ -64,7 +64,7 @@
 
 
 
-
+/* Space between items */
 .simple-item {
     /* text-align: center; */
     /* align-content: center; */
@@ -77,10 +77,11 @@
 }
 
 
+/* images (uniformity) */
 .simple-item img {
     width: 100%;
     height: auto;
-    /* max-height: 180px; */
+    max-height: 400px;
     min-height: 180px;
     object-fit: cover;
     border-radius: 10px;
@@ -88,8 +89,15 @@
     z-index: 0;
 }
 
+.text-container {
+    position: absolute;
+    text-align: center;
+    z-index: 3;
+}
 
+/* ::::::::::::::::::::::::::::::::::INDIVIDUAL POSTERS:::::::::::::::::::::::::::::::::::::::: */
 
+/* text-align: center; */
 .poster-container {
     position: relative;
     width: 100%;
@@ -101,25 +109,13 @@
 }
 
 
-
-
-
-
-
-
-
-.text-container {
-    position: absolute;
-    text-align: center;
-    z-index: 3;
-}
-
 .text-container p:nth-child(1) {
     margin: 10px 0;
     font-size: 24px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .text-container p:nth-child(2),
 .text-container p:nth-child(4) {
     margin: 10px 0;
@@ -127,6 +123,7 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .text-container p:nth-child(3) {
     margin: 10px 0;
     font-size: 20px;
