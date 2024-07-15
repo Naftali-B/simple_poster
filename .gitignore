@@ -1,0 +1,13 @@
+logs/
+**/__pycache__/
+**/migrations/
+**/pycache/
+
+media/ad_alt_files/
+media/Add_media/
+media/annexe_alt_files/
+media/annexe_files/
+media/comment_files/
+media/profile_images/
+media/tack_files
+
