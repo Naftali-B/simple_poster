@@ -1,3 +1,4 @@
+import traceback
 from django.shortcuts import render
 from django.http import HttpResponse
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
@@ -69,57 +70,62 @@ def generate_poster(request, bg_image_url, text_color, text1, text2, text3, text
     # Return the image as a response
     return HttpResponse(buffer, content_type='image/png')
 
-def generate_poster_two(request, bg_image_url, overlay_img_url, text_color, text1, text2, text3, text4):
-    # Fetch the background image from the URL
-    response = requests.get(bg_image_url)
-    bg_image = Image.open(io.BytesIO(response.content))
+def generate_poster_two(request):
+    bg_image_url = request.GET.get('bg_image_url')
+    overlay_img_url = request.GET.get('overlay_img_url')
+    text_color = request.GET.get('text_color')
+    text1 = request.GET.get('text1')
+    text2 = request.GET.get('text2')
+    text3 = request.GET.get('text3')
+    text4 = request.GET.get('text4')
 
-    # Fetch the overlay image from the URL
-    overlay_response = requests.get(overlay_img_url)
-    overlay_image = Image.open(io.BytesIO(overlay_response.content))
-
-    # Resize overlay image to match background image size
-    overlay_image = overlay_image.resize(bg_image.size)
-
-    # Apply transparency to the overlay image (0.4 to 0.6 transparency)
-    transparency = 0.5  # Adjust value between 0.0 (fully transparent) and 1.0 (fully opaque)
-    overlay_image = ImageEnhance.Brightness(overlay_image).enhance(transparency)
-
-    # Blend the overlay image with the background image
-    blended_image = Image.alpha_composite(bg_image.convert('RGBA'), overlay_image.convert('RGBA'))
-
-    # Load a font
-    font_path = os.path.join(os.path.dirname(__file__), '../static/assets/fonts/varela_round/VarelaRound-regular.ttf')
-    if not os.path.exists(font_path):
-        return HttpResponse("Font file not found.", status=500)
-    
     try:
+        response_bg = requests.get(bg_image_url)
+        response_bg.raise_for_status()
+        bg_image = Image.open(io.BytesIO(response_bg.content)).convert('RGBA')
+
+        response_overlay = requests.get(overlay_img_url)
+        response_overlay.raise_for_status()
+        overlay_image = Image.open(io.BytesIO(response_overlay.content)).convert('RGBA')
+
+        overlay_image = overlay_image.resize(bg_image.size)
+
+        transparency = 0.3
+        alpha = overlay_image.split()[3]
+        alpha = ImageEnhance.Brightness(alpha).enhance(transparency)
+        overlay_image.putalpha(alpha)
+
+        blended_image = Image.alpha_composite(bg_image, overlay_image)
+
+        font_path = os.path.join(os.path.dirname(__file__), '../static/assets/fonts/varela_round/VarelaRound-regular.ttf')
+        if not os.path.exists(font_path):
+            return HttpResponse("Font file not found.", status=500)
+
         font_size_big = 24
         font_size_small = 18
         font_big = ImageFont.truetype(font_path, font_size_big)
         font_small = ImageFont.truetype(font_path, font_size_small)
-    except IOError:
-        return HttpResponse("Cannot load font file.", status=500)
 
-    # Initialize ImageDraw
-    draw = ImageDraw.Draw(blended_image)
+        draw = ImageDraw.Draw(blended_image)
 
-    # Define text position and color
-    text1_position = (280, 250)
-    text2_position = (280, 280)
-    text3_position = (280, 310)
-    text4_position = (280, 340)
+        text1_position = (280, 250)
+        text2_position = (280, 280)
+        text3_position = (280, 310)
+        text4_position = (280, 340)
 
-    # Draw text on the image
-    draw.text(text1_position, text1, fill=f"#{text_color}", font=font_big)
-    draw.text(text2_position, text2, fill=f"#{text_color}", font=font_small)
-    draw.text(text3_position, text3, fill=f"#{text_color}", font=font_small)
-    draw.text(text4_position, text4, fill=f"#{text_color}", font=font_small)
+        draw.text(text1_position, text1, fill=f"#{text_color}", font=font_big)
+        draw.text(text2_position, text2, fill=f"#{text_color}", font=font_small)
+        draw.text(text3_position, text3, fill=f"#{text_color}", font=font_small)
+        draw.text(text4_position, text4, fill=f"#{text_color}", font=font_small)
 
-    # Save the image to a bytes buffer
-    buffer = io.BytesIO()
-    blended_image.save(buffer, format='PNG')
-    buffer.seek(0)
+        buffer = io.BytesIO()
+        blended_image.save(buffer, format='PNG')
+        buffer.seek(0)
 
-    # Return the image as a response
-    return HttpResponse(buffer, content_type='image/png')
+        return HttpResponse(buffer, content_type='image/png')
+
+    except requests.exceptions.RequestException as e:
+        return HttpResponse(f"Error fetching image: {e}", status=500)
+    except Exception as e:
+        print(f"Error generating poster: {traceback.format_exc()}")
+        return HttpResponse("Error generating poster", status=500)

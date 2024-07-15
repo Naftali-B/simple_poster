@@ -157,3 +157,56 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#::::::::::::::::::::::::detailed logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::detailed logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::detailed logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::detailed logs in log file:::::::::::::::::::::::::::
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+
+# Ensures that the logs directory exists
+if not os.path.exists(LOGGING_DIR):
+    os.makedirs(LOGGING_DIR)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(LOGGING_DIR, 'django.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.server': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        # 'django.core.mail': {
+        #     'handlers': ['console'],
+        #     'level': 'DEBUG',
+        #     'propagate': True,
+        # },
+    },
+}
+
+
+#::::::::::::::::::::::::end logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::end logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::end logs in log file:::::::::::::::::::::::::::
+#::::::::::::::::::::::::end logs in log file:::::::::::::::::::::::::::
