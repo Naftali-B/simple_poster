@@ -1,0 +1,26 @@
+{% load static %}
+{% load humanize %}
+<!-- {.% load jinja_filters %} -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PosterGen - Create Stunning Posters Instantly!</title>
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=2">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://unbounce.com/photos/lp-templates-hero-image-1-1.webp" alt="Poster">
+        </div>
+        <div class="text">
+            <h1>Simple, Quick Poster</h1>
+            <p>Provide Event title, short description, date, time, venue.
+                We'll create a professional-looking poster.</p>
+            <a href="{% url simple_quick %}" class="btn">Create</a>
+        </div>
+    </div>
+</body>
+</html>
