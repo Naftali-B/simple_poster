@@ -78,8 +78,8 @@ def generate_poster_two(request, bg_image_url, overlay_img_url, text_color, text
     overlay_response = requests.get(overlay_img_url)
     overlay_image = Image.open(io.BytesIO(overlay_response.content))
 
-    # # Resize overlay image to match background image size
-    # overlay_image = overlay_image.resize(bg_image.size)
+    # Resize overlay image to match background image size
+    overlay_image = overlay_image.resize(bg_image.size)
 
     # Apply transparency to the overlay image (0.4 to 0.6 transparency)
     transparency = 0.5  # Adjust value between 0.0 (fully transparent) and 1.0 (fully opaque)
