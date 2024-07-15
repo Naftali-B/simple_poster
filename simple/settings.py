@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     'core',
     'posters',
+
+    'django.contrib.humanize',
 ]
 
 # AUTH_USER_MODEL = 'core.User'

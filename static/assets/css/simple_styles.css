@@ -1,0 +1,135 @@
+
+/* Poster Styles */
+
+.download-btn {
+        background-color: #375338;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 15%;
+    }
+
+.simple {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px 1px;
+    margin: auto;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto; /* Optional */
+
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+@media (max-width: 400px) {
+    /* On screens between 401px and 700px */
+    .simple {
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+
+@media (min-width: 401px) and (max-width: 700px) {
+    /* On screens between 401px and 700px */
+    .simple {
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    /* On screens between 701px and 900px */
+    .simple {
+        /* grid-template-columns: repeat(3, 1fr); */
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (min-width: 901px) {
+    /* On screens 901px and wider, use a three-column layout */
+    .simple {
+        /* grid-template-columns: repeat(4, 1fr); */
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+
+
+
+.simple-item {
+    /* text-align: center; */
+    /* align-content: center; */
+    margin: auto;
+    margin-top: 10px;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #009c9c;  /* rgb(206, 206, 206); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.simple-item img {
+    width: 100%;
+    height: auto;
+    /* max-height: 180px; */
+    min-height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+}
+
+
+
+.poster-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+.text-container {
+    position: absolute;
+    text-align: center;
+    z-index: 3;
+}
+
+.text-container p:nth-child(1) {
+    margin: 10px 0;
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.text-container p:nth-child(2),
+.text-container p:nth-child(4) {
+    margin: 10px 0;
+    font-size: 18px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.text-container p:nth-child(3) {
+    margin: 10px 0;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
