@@ -78,6 +78,7 @@ def generate_poster_two(request):
     text2 = request.GET.get('text2')
     text3 = request.GET.get('text3')
     text4 = request.GET.get('text4')
+    text = "                        Smaller text\nwith custom styling"
 
     try:
         response_bg = requests.get(bg_image_url)
@@ -89,17 +90,22 @@ def generate_poster_two(request):
         overlay_image = Image.open(io.BytesIO(response_overlay.content)).convert('RGBA')
 
         # overlay_image = overlay_image.resize(bg_image.size) # Resize to match the background without aspect ratio
-        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.LANCZOS)
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.LANCZOS) # BEST QUALITY
         # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BICUBIC)
         # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.HAMMING)
-        overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BILINEAR)
-        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BOX)
-        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.NEAREST)
+        overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BILINEAR) # CHOSEN FOR SPEED/QUALITY BALANCE
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BOX) # POOR QUALITY
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.NEAREST) # POOREST QUALITY
 
-        transparency = 0.4
+        transparency = 0.9
         alpha = overlay_image.split()[3]
         alpha = ImageEnhance.Brightness(alpha).enhance(transparency)
         overlay_image.putalpha(alpha)
+
+        # # when not resized... ensuring same mode and size before blending
+        # if bg_image.size != overlay_image.size:
+        #     # handlling mismatched sizes, e.g., by pasting overlay onto bg_image at a certain position
+        #     bg_image.paste(overlay_image, (10, 10), overlay_image)
 
         blended_image = Image.alpha_composite(bg_image, overlay_image)
 
@@ -118,11 +124,13 @@ def generate_poster_two(request):
         text2_position = (280, 280)
         text3_position = (280, 310)
         text4_position = (280, 340)
+        text_position = (280, 380)
 
         draw.text(text1_position, text1, fill=f"#{text_color}", font=font_big)
         draw.text(text2_position, text2, fill=f"#{text_color}", font=font_small)
         draw.text(text3_position, text3, fill=f"#{text_color}", font=font_small)
         draw.text(text4_position, text4, fill=f"#{text_color}", font=font_small)
+        draw.text(text_position, text, fill=f"#{text_color}", font=font_small)
 
         buffer = io.BytesIO()
         blended_image.save(buffer, format='PNG')

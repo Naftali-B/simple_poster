@@ -131,3 +131,13 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.class1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
