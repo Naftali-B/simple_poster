@@ -1,7 +1,7 @@
 import traceback
 from django.shortcuts import render
 from django.http import HttpResponse
-from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageOps
 import io
 import requests # to fetch the image from the URL
 import os
@@ -88,7 +88,8 @@ def generate_poster_two(request):
         response_overlay.raise_for_status()
         overlay_image = Image.open(io.BytesIO(response_overlay.content)).convert('RGBA')
 
-        overlay_image = overlay_image.resize(bg_image.size)
+        # overlay_image = overlay_image.resize(bg_image.size)
+        overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.LANCZOS)
 
         transparency = 0.3
         alpha = overlay_image.split()[3]
