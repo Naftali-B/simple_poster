@@ -88,10 +88,15 @@ def generate_poster_two(request):
         response_overlay.raise_for_status()
         overlay_image = Image.open(io.BytesIO(response_overlay.content)).convert('RGBA')
 
-        # overlay_image = overlay_image.resize(bg_image.size)
-        overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.LANCZOS)
+        # overlay_image = overlay_image.resize(bg_image.size) # Resize to match the background without aspect ratio
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.LANCZOS)
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BICUBIC)
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.HAMMING)
+        overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BILINEAR)
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.BOX)
+        # overlay_image = ImageOps.fit(overlay_image, bg_image.size, method=Image.NEAREST)
 
-        transparency = 0.3
+        transparency = 0.4
         alpha = overlay_image.split()[3]
         alpha = ImageEnhance.Brightness(alpha).enhance(transparency)
         overlay_image.putalpha(alpha)
