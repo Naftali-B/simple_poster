@@ -15,18 +15,32 @@ def details(request):
 
 
 def simple_quick(request):
-    return render(request, 'simple_quick.html')
+    title = request.POST.get('title')
+    description = request.POST.get('description')
+    date = request.POST.get('date')
+    time = request.POST.get('time')
+    venue = request.POST.get('venue')
+
+    context = {
+        'title': title,
+        'description': description,
+        'date': date,
+        'time': time,
+        'venue': venue
+    }
+    return render(request, 'simple_quick.html' , context)
 
 
 def generate_poster(request):
     bg_image_url = request.GET.get('bg_image_url')
     overlay_img_url = request.GET.get('overlay_img_url')
     text_color = request.GET.get('text_color')
-    text1 = request.GET.get('text1')
-    text2 = request.GET.get('text2')
-    text3 = request.GET.get('text3')
-    text4 = request.GET.get('text4')
-    text = "                        Smaller text\nwith custom styling"
+    title = request.GET.get('title')
+    date = request.GET.get('date')
+    time = request.GET.get('time')
+    description = request.GET.get('description')
+    venue = request.GET.get('venue')
+    text0 = "                        Smaller text\nwith custom styling"
 
     try:
         response_bg = requests.get(bg_image_url)
@@ -68,17 +82,19 @@ def generate_poster(request):
 
         draw = ImageDraw.Draw(blended_image)
 
-        text1_position = (280, 250)
-        text2_position = (280, 280)
-        text3_position = (280, 310)
-        text4_position = (280, 340)
-        text_position = (280, 380)
+        title_position = (280, 250)
+        date_position = (280, 280)
+        time_position = (280, 300)
+        description_position = (280, 340)
+        venue_position = (280, 380)
+        text0_position = (280, 420)
 
-        draw.text(text1_position, text1, fill=f"#{text_color}", font=font_big)
-        draw.text(text2_position, text2, fill=f"#{text_color}", font=font_small)
-        draw.text(text3_position, text3, fill=f"#{text_color}", font=font_small)
-        draw.text(text4_position, text4, fill=f"#{text_color}", font=font_small)
-        draw.text(text_position, text, fill=f"#{text_color}", font=font_small)
+        draw.text(title_position, title, fill=f"#{text_color}", font=font_big)
+        draw.text(date_position, date, fill=f"#{text_color}", font=font_small)
+        draw.text(time_position, time, fill=f"#{text_color}", font=font_small)
+        draw.text(description_position, description, fill=f"#{text_color}", font=font_small)
+        draw.text(venue_position, venue, fill=f"#{text_color}", font=font_small)
+        draw.text(text0_position, text0, fill=f"#{text_color}", font=font_small)
 
         buffer = io.BytesIO()
         blended_image.save(buffer, format='PNG')

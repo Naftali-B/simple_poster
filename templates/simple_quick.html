@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=2"> -->
-    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=4">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- <script src="{% static 'assets/js/script.js' %}"></script> -->
@@ -37,14 +37,15 @@
                 <div class="poster-container">
                     <img class="main-image" src="https://img.freepik.com/free-vector/purple-pink-halftone-background-vector_53876-67278.jpg?t=st=1718294843~exp=1718298443~hmac=45f0a38593b259e7545c1a952410159cabfdcf449b5c0757e774e71f3bf10d93&w=740" alt="Base Image">
                     <div class="text-container">
-                        <p>Big text</p>
-                        <p>Smaller text</p>
-                        <p>Smallest text</p>
-                        <p>Smaller text</p>
+                        <p>{{title}}</p>
+                        <p>{{date}}</p>
+                        <p>{{time}}</p>
+                        <p>{{description}}</p>
+                        <p>{{venue}}</p>
                     </div>
                 </div>
                 <p></p>
-                <span><a href="{% url 'generate_poster' %}?bg_image_url=https://img.freepik.com/free-vector/purple-pink-halftone-background-vector_53876-67278.jpg&overlay_img_url=https://tack.plus/media/comment_files/2Artboard_1.png&text_color=ffffff&text1=Big%20text&text2=Smaller%20text&text3=Smallest%20text&text4=%20%20%20%20%20%20%20%20%20%20Smaller%20text" download="poster1.png">
+                <span><a href="{% url 'generate_poster' %}?bg_image_url=https://img.freepik.com/free-vector/purple-pink-halftone-background-vector_53876-67278.jpg&overlay_img_url=https://tack.plus/media/comment_files/2Artboard_1.png&text_color=ffffff&title={{title}}&date={{date}}&time={{time}}&description={{description}}&venue={{venue}}" download="poster1.png">
                     <button class="download-btn"> Download </button>
                 </a></span>
                 <a href="{% url 'home' %}">
@@ -78,10 +79,11 @@
                 <div class="poster-container">
                     <img class="main-image" src="https://img.freepik.com/premium-vector/african-geometric-seamless-pattern-with-grunge-effect_601200-253.jpg" alt="Base Image">
                     <div class="text-container">
-                        <p>Big Topic is Now Here</p>
-                        <p>Smaller 20th June</p>
-                        <p>Smallest 8 AM - 12 PM</p>
-                        <p>Smaller Hall Twenty</p>
+                        <p>{{title}}</p>
+                        <p>{{date}}</p>
+                        <p>{{time}}</p>
+                        <p>{{description}}</p>
+                        <p>{{venue}}</p>
                     </div>
                 </div>
                 <p></p>
@@ -98,10 +100,11 @@
                 <div class="poster-container">
                     <img class="main-image" src="https://img.freepik.com/free-vector/abstract-colorful-geometric-isometric-background_8829-2711.jpg?size=626&ext=jpg&uid=R47087294&ga=GA1.1.1604559356.1718186747&semt=sph" alt="Base Image">
                     <div class="text-container">
-                        <p c>Big text</p>
-                        <p c>Smaller text</p>
-                        <p c>Smallest text</p>
-                        <p c>Smaller text</p>
+                        <p>{{title}}</p>
+                        <p>{{date}}</p>
+                        <p>{{time}}</p>
+                        <p>{{description}}</p>
+                        <p>{{venue}}</p>
                     </div>
                 </div>
                 <p></p>
@@ -118,10 +121,11 @@
                 <div class="poster-container">
                     <img class="main-image" src="https://img.freepik.com/premium-vector/abstract-background-holographic-wallapaper_672927-110.jpg?size=626&ext=jpg&uid=R47087294&ga=GA1.1.1604559356.1718186747&semt=sph" alt="Base Image">
                     <div class="text-container">
-                        <p>Big text</p>
-                        <p>Smaller text</p>
-                        <p>Smallest text</p>
-                        <p>Smaller text</p>
+                        <p>{{title}}</p>
+                        <p>{{date}}</p>
+                        <p>{{time}}</p>
+                        <p>{{description}}</p>
+                        <p>{{venue}}</p>
                     </div>
                 </div>
                 <p></p>
@@ -138,10 +142,11 @@
                 <div class="poster-container">
                     <img class="main-image" src="https://vendy.co.ke/outro.jpeg" alt="Base Image">
                     <div class="text-container">
-                        <p>Big text</p>
-                        <p>Smaller text</p>
-                        <p>Smallest text</p>
-                        <p>Smaller text</p>
+                        <p>{{title}}</p>
+                        <p>{{date}}</p>
+                        <p>{{time}}</p>
+                        <p>{{description}}</p>
+                        <p>{{venue}}</p>
                     </div>
                 </div>
                 <p></p>
