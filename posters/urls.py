@@ -6,7 +6,8 @@ urlpatterns = [
     path('details', views.details, name='details'),
     path('simple_quick', views.simple_quick, name='simple_quick'),
     path('generate_poster/', views.generate_poster, name='generate_poster'),
-    # path('generate_poster', views.generate_poster, name='generate_poster'),
+
+    # path('download_poster', views.download_poster, name='download_poster'),
 
 
 ]

@@ -1,0 +1,99 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 10px;
+  }
+  .image-container {
+    width: 100%;
+    height: auto; /* Viewport height to ensure the full height is used */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*overflow-y: scroll;  Allows vertical scrolling */
+  }
+  .image-container img {
+    width: 100%;
+    height: auto; /* Maintains the aspect ratio */
+  }
+  .title {
+    position: absolute;
+    top: 10%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    color: white;
+    font-size: 2em; /* SUPPOSED TO BE DYNAMIC */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .date {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    color: white;
+    font-size: 2em;
+    background-color: rgba(55, 77, 78, 0.5); /* Semi-transparent background */
+    padding: 10px;
+  }
+  .time {
+    position: absolute;
+    top: 30%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    color: white;
+    font-size: 2em;
+    background-color: rgba(55, 77, 78, 0.5); /* Semi-transparent background */
+    padding: 10px;
+  }
+  .description {
+    position: absolute;
+    top: 40%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    color: white;
+    font-size: 2em;
+    font-family: 'Varela Round', sans-serif;
+    background-color: rgba(55, 77, 78, 0.5); /* Semi-transparent background */
+    padding: 10px;
+  }
+  .venue {
+    position: absolute;
+    top: 80%; /* Adjust as needed */
+    left: 40%; /* Adjust as needed */
+    color: white;
+    font-size: 2em;
+    background-color: rgba(55, 77, 78, 0.5); /* Semi-transparent background */
+    padding: 10px;
+  }
+  .shape1 {
+    position: absolute;
+    bottom: 20%; /* Adjust as needed */
+    right: 10%; /* Adjust as needed */
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent shape */
+  }
+  .shape2 {
+    position: absolute;
+    bottom: 10%; /* Adjust as needed */
+    right: 10%; /* Adjust as needed */
+    width: 100px;
+    height: 10px;
+    background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent shape */
+    border-radius: 10px;
+  }
+</style>
+
+<div class="image-container">
+  <img src="https://tack.plus/media/Add_media/1back_img-100.jpg" alt="Square Image">
+  <div class="title">Title</div>
+  <div class="date">18th July 2024</div>
+  <div class="time">7 am to 10 am</div>
+  <div class="description"><pre>Engineering at Meta - https://lnkd.in/e8tiSkEv
+Google Research - https://ai.googleblog.com/
+Google Cloud Blog - https://lnkd.in/enNviCF8
+AWS Architecture Blog - https://lnkd.in/eEchKJif
+All Things Distributed - https://lnkd.in/emXaQDaS</pre></div>
+  <div class="venue">Casablanca</div>
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+</div>
