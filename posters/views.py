@@ -68,7 +68,7 @@ def generate_poster(request):
         #     'File': temp_html_path
         # }, from_format='html').save_files(str(quick_temps_dir))
 
-        # os.remove(temp_html_path)
+        # # os.remove(temp_html_path)
         # # after download logic
         # file_to_remove = quick_temps_dir / 'quick_temp.jpg'
         # if file_to_remove.exists():

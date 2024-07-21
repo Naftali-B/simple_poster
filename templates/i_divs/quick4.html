@@ -23,6 +23,16 @@
     object-fit: cover; /* Cover the container without distortion */
   }
 
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without distortion */
+    opacity: 0.5;
+  }
+
   .content-container {
     position: absolute;
     top: 0;
@@ -61,7 +71,8 @@
 </style>
 
 <div class="square">
-  <img src="https://tack.plus/media/Add_media/2back_img-100.jpg" alt="Square Image">
+  <img src="https://tack.plus/media/Add_media/pexels-photo-129731.webp" alt="Square Image">
+  <img class="overlay" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay Image">
   <div class="content-container">
     <div class="title">{{title}}</div>
     <div class="date">{{date}}</div>

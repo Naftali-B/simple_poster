@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#5e0000",
+        "statusBar.background": "#5e0000",
+        "titleBar.activeBackground": "#5e0000",
+    },
+    "editor.quickSuggestionsDelay": 300,
+    "editor.hover.hidingDelay": 500,
+    "editor.hover.delay": 500
+}

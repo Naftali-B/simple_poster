@@ -1,66 +1,58 @@
 
 /* Poster Styles */
 
-.download-btn {
+
+    .simple {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+        margin: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        font-family: 'Varela Round', sans-serif;
+      }
+      
+      @media (max-width: 400px) {
+        .simple {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+      
+      @media (min-width: 401px) and (max-width: 700px) {
+        .simple {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+      
+      @media (min-width: 701px) and (max-width: 900px) {
+        .simple {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+      
+      @media (min-width: 901px) {
+        .simple {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+      
+      .download-btn {
+        /* display: block; */
+        width: 40%;
+        padding: 10px;
+        text-align: center;
+        font-size: medium;
+        font-family: 'Varela Round', sans-serif;
+        text-decoration: none;
         background-color: #375338;
+        color: white;
         border: none;
         border-radius: 5px;
-        color: white;
-        padding: 5px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-left: 15%;
-    }
-
-.simple {
-    /* padding-top: 80px; */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px 1px;
-    margin: auto;
-
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto; /* Optional */
-
-    /* font-family: 'Varela Round', sans-serif; */
-}
-
-
-@media (max-width: 400px) {
-    /* On screens between 401px and 700px */
-    .simple {
-        /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-}
-
-
-@media (min-width: 401px) and (max-width: 700px) {
-    /* On screens between 401px and 700px */
-    .simple {
-        /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-}
-
-@media (min-width: 701px) and (max-width: 900px) {
-    /* On screens between 701px and 900px */
-    .simple {
-        /* grid-template-columns: repeat(3, 1fr); */
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-}
-
-@media (min-width: 901px) {
-    /* On screens 901px and wider, use a three-column layout */
-    .simple {
-        /* grid-template-columns: repeat(4, 1fr); */
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-}
+        cursor: pointer;
+        margin-left: 25px;
+      }
+      
 
 
 
@@ -73,7 +65,7 @@
     width: 90%;
     border-radius: 10px;
     background-color: #009c9c4f;  /* rgb(206, 206, 206); */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.658), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -90,27 +82,13 @@
     z-index: 0;
 }
 
-.text-container {
-    position: absolute;
-    text-align: center;
-    z-index: 3;
-}
-
-/* ::::::::::::::::::::::::::::::::::INDIVIDUAL POSTERS:::::::::::::::::::::::::::::::::::::::: */
-
-/* text-align: center; */
-.poster-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
 
 
-.text-container p:nth-child(1) {
+
+
+
+
+/* .text-container p:nth-child(1) {
     margin: 10px 0;
     font-size: 24px;
     color: white;
@@ -133,12 +111,12 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* .text-container pre {
+.text-container pre {
     margin: 10px 0;
     font-size: 20px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-} */
+}
 
 .class1 {
     font-family: 'Varela Round', sans-serif;
@@ -148,4 +126,4 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 15px;
-}
+} */

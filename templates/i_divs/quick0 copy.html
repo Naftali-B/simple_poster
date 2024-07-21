@@ -5,6 +5,34 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 10px;
   }
+
+  .square {
+      position: relative;
+      width: 100vw; /* 100% of viewport width */
+      height: 100vw; /* 100% of viewport width to maintain 1:1 ratio */
+      overflow: auto; /* Scrollbars will appear if content overflows */
+      background-color: #f0f0f0; /* Optional: for visual effect */
+  }
+
+  .square .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Optional: for better visuals */
+.square .content h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.square .content p {
+    margin: 10px 0 0;
+    font-size: 1em;
+}
+
   .image-container {
     width: 100%;
     height: auto; /* Viewport height to ensure the full height is used */
@@ -13,6 +41,11 @@
     align-items: center;
     /*overflow-y: scroll;  Allows vertical scrolling */
   }
+  .square img {
+    width: 100%;
+    height: auto; /* Maintains the aspect ratio */
+  }
+
   .image-container img {
     width: 100%;
     height: auto; /* Maintains the aspect ratio */
@@ -83,9 +116,21 @@
   }
 </style>
 
-<div class="image-container">
+<!-- <div class="square">
   <img src="https://tack.plus/media/Add_media/1back_img-100.jpg" alt="Square Image">
   <div class="title">{{title}}</div>
+  <div class="date">{{date}}</div>
+  <div class="time">{{time}}</div>
+  <div class="description"><pre>{{description}}</pre></div>
+  <div class="venue">{{venue}}</div>
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+</div> -->
+
+<div class="square">
+  <img src="https://tack.plus/media/Add_media/1back_img-100.jpg" alt="Square Image">
+  <div class="title">{{title}}</div>
+  <h1>{{title}}</h1>
   <div class="date">{{date}}</div>
   <div class="time">{{time}}</div>
   <div class="description"><pre>{{description}}</pre></div>

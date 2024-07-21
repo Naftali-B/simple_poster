@@ -12,9 +12,9 @@
     <title>Simple Quick: T'</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=3"> -->
-    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=3">
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/style_b.css' %}?v=3"> -->
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=8"> -->
+    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=8">
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/style_b.css' %}?v=8"> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     <!-- <script src="{% static 'assets/js/script.js' %}"></script> -->
@@ -24,6 +24,15 @@
             font-family: 'Varela Round';
 	    src: url('{% static "assets/fonts/varela_round/VarelaRound-regular.ttf" %}');
         }
+
+        .content-container {
+            transform: scale(0.35);
+            transform-origin: top left;
+            /* margin-left: -20px;
+            margin-top: -20px; */
+            min-width: 280%;
+            min-height: 280%;
+        }
     </style>
 </head>
 <body style="background-color: rgb(218, 253, 253);">
@@ -32,78 +41,95 @@
     
 
     <div class="simple">
+        <div class="simple-item">
+          <div class="poster-container">
+            {% include 'i_divs/quick0.html' %}
+          </div>
+          <p></p>
+          <span>
+            <a href="{% url 'generate_poster' %}?file=i_divs/quick0.html">
+              <button class="download-btn">Download</button>
+            </a>
+          </span>
+          <span>
+            <a href="{% url 'home' %}">
+                <button class="download-btn">Variants</button>
+            </a>
+          </span>
+          <p></p>
+        </div>
 
-            <div class="simple-item">
-                <div class="poster-container">
-                    <img class="main-image" src="https://tack.plus/media/Add_media/1back_img-100.jpg" alt="pstr">
-                    <div class="text-container">
-                        <p>{{title}}</p>
-                        <p>{{date}}</p>
-                        <p>{{time}}</p>
-                        <pre class="class1">{{description}}</pre>
-                        <p>{{venue}}</p>
-                    </div>
-                </div>
-                <p></p>
-                <span><a href="{% url 'generate_poster' %}?file=https://tack.plus/media/Add_media/1back_img-100.jpg&overlay_img_url=https://tack.plus/media/comment_files/2Artboard_1.png&text_color=ffffff&title={{title}}&date={{date}}&time={{time}}&description={{description}}&venue={{venue}}" download="poster1.png">
-                    <button class="download-btn"> Download </button>
-                </a></span>
-                <a href="{% url 'home' %}">
-                    <button class="download-btn"> Variants </button>
-                </a>
-                <p></p>
+        <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick1.html' %}
             </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick1.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
 
-            <div class="simple-item">
-                <div class="poster-container">
-                    <img class="main-image" src="https://tack.plus/media/Add_media/3back_img-100.jpg" alt="Base Image">
-                    <div class="text-container">
-                        <pre> </pre>
-                        <pre> </pre>
-                        <pre> </pre>
-                        <p>You Are Welcome</p>
-                        <pre class="class1">Monday          |        30th June</pre>
-                    </div>
-                </div>
-                <p></p>
-                <a href="{% url 'generate_poster' %}?bg_image_url=https://tack.plus/media/Add_media/3back_img-100.jpg&overlay_img_url=https://tack.plus/media/comment_files/2Artboard_1.png&text_color=ffffff&text1=Big%20text&text2=Smaller%20text&text3=Smallest%20text&text4=%20%20%20%20%20%20%20%20%20%20Smaller%20text" download="poster1.png">
-                    <button class="download-btn"> Download </button>
-                </a>
-                <a href="{% url 'home' %}">
-                    <button class="download-btn"> Variants </button>
-                </a>
-                <p></p>
+          <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick2.html' %}
             </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick2.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
 
-            <div class="simple">
-                <div class="simple-item">
-                    <div class="poster-container">
-                        {% include 'i_divs/quick.html' %}
-                    </div>
-                    <p></p>
-                    <span><a href="{% url 'generate_poster' %}?file=i_divs/quick.html">
-                        <button class="download-btn"> Download </button>
-                    </a></span>
-                    <a href="{% url 'home' %}">
-                        <button class="download-btn"> Variants </button>
-                    </a>
-                    <p></p>
-                </div>
-        
-                <div class="simple-item">
-                    <div class="poster-container">
-                        {% include 'i_divs/quick2.html' %}
-                    </div>
-                    <p></p>
-                    <span><a href="{% url 'generate_poster' %}?file=i_divs/quick2.html">
-                        <button class="download-btn"> Download </button>
-                    </a></span>
-                    <a href="{% url 'home' %}">
-                        <button class="download-btn"> Variants </button>
-                    </a>
-                    <p></p>
-                </div>
+          <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick3.html' %}
             </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick3.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
+
+          <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick4.html' %}
+            </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick4.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
 
     </div>
 

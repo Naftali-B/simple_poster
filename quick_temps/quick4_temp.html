@@ -1,0 +1,88 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 10px;
+  }
+
+  .square {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    background-color: #f0f0f0; /* Optional: for visual effect */
+  }
+
+  .square img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without distortion */
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container without distortion */
+    opacity: 0.5;
+  }
+
+  .content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*padding: 2%;  Add padding for spacing */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    /* aspect-ratio: 1 / 1; */
+  }
+
+  .title,
+  .date,
+  .time,
+  .description,
+  .venue {
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+
+  .title { top: 10%; left: 10%; }
+  .date { top: 20%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
+  .time { top: 30%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
+  .description { top: 40%; left: 10%; font-family: 'Varela Round', sans-serif; background-color: rgba(55, 77, 78, 0.5); }
+  .venue { top: 80%; left: 40%; background-color: rgba(55, 77, 78, 0.5); }
+
+  .shape01, .shape02 {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  .shape01 { bottom: 20%; right: 10%; width: 100px; height: 100px; }
+  .shape02 { bottom: 10%; right: 10%; width: 100px; height: 10px; border-radius: 10px; }
+</style>
+
+<div class="square">
+  <img src="https://tack.plus/media/Add_media/pexels-photo-129731.webp" alt="Square Image">
+  <img class="overlay" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay Image">
+  <div class="content-container">
+    <div class="title">Men&#x27;s Meeting</div>
+    <div class="date">18th July 2024</div>
+    <div class="time">7 am to 10 am</div>
+    <div class="description"><pre>Agenda:
+Senior Pastor&#x27;s Breakfast
+Entry is Free
+All men aged 18 and above are invited</pre></div>
+    <div class="venue">PAC Chapel</div>
+    <div class="shape01"></div>
+    <div class="shape02"></div>
+  </div>
+</div>
