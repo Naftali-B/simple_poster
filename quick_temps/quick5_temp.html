@@ -40,7 +40,7 @@
     width: 100%;
     height: 100%;
     /*padding: 2%;  Add padding for spacing */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    /*box-sizing: border-box;  Include padding and border in element's total width and height */
     /* aspect-ratio: 1 / 1; */
     /* display: flex;
     justify-content: center;
@@ -55,11 +55,24 @@
     position: absolute;
     padding: 10px;
     color: white;
-    top: 20%;
+    top: 0%;
     left: 10%;
     background-color: rgba(55, 77, 78, 0);
-    font-size: 10em;
+    font-size: 20em;
     font-family: 'OpenSans-Bold' , sans-serif;
+
+    /*font-size: clamp(16px, 2vw, 33px);  Responsive font size */
+    line-height: 1.2; /* Adjust line-height if necessary */
+    overflow: hidden; /* Hide overflow text */
+    /*white-space: nowrap;  Prevent text wrapping */
+
+    width: 80%;
+    max-height: 30%;
+    text-align: center;
+
+    /* display: flex; ::::::::JUST IN CASE MAY NEED THIS::::::::::
+    justify-content: center; ::::::::JUST IN CASE MAY NEED THIS::::::::::
+    align-items: center;  ::::::::JUST IN CASE MAY NEED THIS::::::::::*/
   }
   
   .date5 {
@@ -97,23 +110,28 @@
     line-height: normal;
     width: 80%;
     border-radius: 15px;
+    text-align: center;
   }
 
   .venue5 {
     position: absolute;
-    padding: 10px;
+    padding: 25px;
     color: white;
-    top: 90%; left: 40%;
+    bottom: 10%;
+    right: 10%;
+    left: 10%;
     background-color: rgba(55, 77, 78, 0.5);
     font-family: 'OpenSans-Bold' , sans-serif;
+    font-size: 33px;
+    text-align: center;
   }
 
   .shape5-1 {
     position: absolute;
-    bottom: 20%;
-    /* right: 10%;
-    left: 10%; */
-    width: 100px;
+    bottom: 10%;
+    right: 10%;
+    left: 10%;
+    width: 80%;
     height: 100px;
     background-color: rgba(255, 0, 0, 0.5);
   }
@@ -144,22 +162,3 @@ All men aged 18 and above are invited</pre></div>
     <div class="shape5-2"></div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var titleElement = document.getElementById('dynamic-title');
-    var titleText = titleElement.innerText;
-
-    // Example conditions based on the number of characters
-    if (titleText.length < 20) {
-      titleElement.style.left = "10%";
-      titleElement.style.fontSize = "2em";
-    } else if (titleText.length < 40) {
-      titleElement.style.left = "20%";
-      titleElement.style.fontSize = "1.5em";
-    } else {
-      titleElement.style.left = "30%";
-      titleElement.style.fontSize = "1em";
-    }
-  });
-</script>

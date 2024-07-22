@@ -30,13 +30,10 @@ def simple_quick(request):
     
     if len(title) < 10:
         font_size = 15
-        left = 20
     elif len(title) > 10 and len(title) < 15:
         font_size = 10
-        left = 10
     else:
         font_size = 4
-        left = 5
 
 
     context = {
@@ -46,7 +43,6 @@ def simple_quick(request):
         'time': time,
         'venue': venue,
 
-        "left": left,
         "font_size": font_size
     }
 
