@@ -10,7 +10,7 @@
         overflow-wrap: break-word;
         word-wrap: break-word;
         hyphens: auto;
-        font-family: 'Varela Round', sans-serif;
+        /* font-family: 'Varela Round', sans-serif; */
       }
       
       @media (max-width: 400px) {

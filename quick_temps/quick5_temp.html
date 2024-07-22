@@ -1,0 +1,165 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 10px;
+  }
+
+  .square5 {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    /* background-color: #ff0000; */
+  }
+
+  .square5 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+  .content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*padding: 2%;  Add padding for spacing */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    /* aspect-ratio: 1 / 1; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  .content-container pre {
+    font-family: 'OpenSans-Bold' , sans-serif;
+  }
+
+  .title5 {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    top: 20%;
+    left: 10%;
+    background-color: rgba(55, 77, 78, 0);
+    font-size: 10em;
+    font-family: 'OpenSans-Bold' , sans-serif;
+  }
+  
+  .date5 {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    top: 70%; left: 25%;
+    /* background-color: rgba(55, 77, 78, 0.5); */
+    font-family: 'OpenSans-Bold' , sans-serif;
+    font-size: 33px;
+    border: 2px solid white;
+    border-radius: 15px;
+  }
+
+  .time5 {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    top: 70%; left: 55%;
+    background-color: rgba(55, 77, 78, 0.5);
+    font-family: 'OpenSans-Bold' , sans-serif;
+    font-size: 33px;
+    border: 2px solid white;
+    border-radius: 15px;
+  }
+
+  .description5 {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    top: 40%; left: 10%;
+    background-color: rgba(55, 77, 78, 0.5);
+    font-family: 'OpenSans-Bold' , sans-serif;
+    font-size: 33px;
+    line-height: normal;
+    width: 80%;
+    border-radius: 15px;
+  }
+
+  .venue5 {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    top: 90%; left: 40%;
+    background-color: rgba(55, 77, 78, 0.5);
+    font-family: 'OpenSans-Bold' , sans-serif;
+  }
+
+  .shape5-1 {
+    position: absolute;
+    bottom: 20%;
+    /* right: 10%;
+    left: 10%; */
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+  .shape5-2 {
+    position: absolute;
+    bottom: 10%; right: 10%;
+    width: 100px; height: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+</style>
+
+<div class="square5">
+  <img src="https://tack.plus/media/Add_media/bg5.png" alt="Template Image">
+  <!-- <img class="overlay5" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay5 Image"> -->
+  <div class="content-container">
+    <div class="title5">MEN&#x27;S MEETING</div>
+    <div class="date5">18th July 2024</div>
+    <div class="time5">7 am to 10 am</div>
+    <div class="description5"><pre>Agenda:
+Senior Pastor&#x27;s Breakfast
+Entry is Free
+All men aged 18 and above are invited</pre></div>
+    <div class="venue5">PAC Chapel</div>
+    <div class="shape5-1"></div>
+    <div class="shape5-2"></div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var titleElement = document.getElementById('dynamic-title');
+    var titleText = titleElement.innerText;
+
+    // Example conditions based on the number of characters
+    if (titleText.length < 20) {
+      titleElement.style.left = "10%";
+      titleElement.style.fontSize = "2em";
+    } else if (titleText.length < 40) {
+      titleElement.style.left = "20%";
+      titleElement.style.fontSize = "1.5em";
+    } else {
+      titleElement.style.left = "30%";
+      titleElement.style.fontSize = "1em";
+    }
+  });
+</script>

@@ -25,12 +25,29 @@ def simple_quick(request):
     time = request.POST.get('time')
     venue = request.POST.get('venue')
 
+    if len(title) == 0 and len(description) == 0 and len(date) == 0 and len(time) == 0 and len(venue) == 0:
+        return HttpResponse("Fields are required.", status=400)
+    
+    if len(title) < 10:
+        font_size = 15
+        left = 20
+    elif len(title) > 10 and len(title) < 15:
+        font_size = 10
+        left = 10
+    else:
+        font_size = 4
+        left = 5
+
+
     context = {
         'title': title,
         'description': description,
         'date': date,
         'time': time,
-        'venue': venue
+        'venue': venue,
+
+        "left": left,
+        "font_size": font_size
     }
 
     request.session['context_data'] = context
@@ -99,8 +116,8 @@ def generate_poster(request):
     except requests.exceptions.RequestException as e:
         return HttpResponse(f"Error fetching context data: {e}", status=500)
     except Exception as e:
-        print(f"Error generating poster: {traceback.format_exc()}")
-        return HttpResponse("Error generating poster", status=500)
+        print(f"Error generating poster!: {traceback.format_exc()}")
+        return HttpResponse("Error generating poster!", status=500)
     
 # # Pillow library example
 # def generate_poster(request):

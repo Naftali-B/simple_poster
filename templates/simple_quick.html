@@ -12,9 +12,9 @@
     <title>Simple Quick: T'</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=8"> -->
-    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=8">
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/style_b.css' %}?v=8"> -->
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}?v=9"> -->
+    <link rel="stylesheet" href="{% static 'assets/css/simple_styles.css' %}?v=9">
+    <!-- <link rel="stylesheet" href="{% static 'assets/css/style_b.css' %}?v=9"> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     <!-- <script src="{% static 'assets/js/script.js' %}"></script> -->
@@ -120,6 +120,24 @@
             <p></p>
             <span>
               <a href="{% url 'generate_poster' %}?file=i_divs/quick4.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
+
+          <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick5.html' %}
+            </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick5.html">
                 <button class="download-btn">Download</button>
               </a>
             </span>
