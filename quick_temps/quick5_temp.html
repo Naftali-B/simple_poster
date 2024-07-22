@@ -1,3 +1,4 @@
+
 <style>
   body {
     margin: 0;
@@ -33,7 +34,7 @@
     opacity: 0.5;
   }
 
-  .content-container {
+  .content-container5 {
     position: absolute;
     top: 0;
     left: 0;
@@ -47,7 +48,7 @@
     align-items: center; */
   }
 
-  .content-container pre {
+  .content-container5 pre {
     font-family: 'OpenSans-Bold' , sans-serif;
   }
 
@@ -55,48 +56,61 @@
     position: absolute;
     padding: 10px;
     color: white;
-    top: 0%;
+    top: 15%;
     left: 10%;
     background-color: rgba(55, 77, 78, 0);
-    font-size: 20em;
+    font-size: 6vw;
     font-family: 'OpenSans-Bold' , sans-serif;
 
-    /*font-size: clamp(16px, 2vw, 33px);  Responsive font size */
-    line-height: 1.2; /* Adjust line-height if necessary */
-    overflow: hidden; /* Hide overflow text */
-    /*white-space: nowrap;  Prevent text wrapping */
-
+    line-height: 1.2;
+    overflow: hidden;
     width: 80%;
-    max-height: 30%;
+    max-height: 20%;
     text-align: center;
-
-    /* display: flex; ::::::::JUST IN CASE MAY NEED THIS::::::::::
-    justify-content: center; ::::::::JUST IN CASE MAY NEED THIS::::::::::
-    align-items: center;  ::::::::JUST IN CASE MAY NEED THIS::::::::::*/
+    z-index: 10;
   }
+
+  /* .date_time5 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    top: 70%;
+    left: 5%;
+  } */
   
   .date5 {
     position: absolute;
     padding: 10px;
     color: white;
-    top: 70%; left: 25%;
+    top: 70%;
+    left: 25%;
     /* background-color: rgba(55, 77, 78, 0.5); */
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
     border: 2px solid white;
     border-radius: 15px;
+    z-index: 10;
+
+    text-align: center;
+    width: 20%;
   }
 
   .time5 {
     position: absolute;
     padding: 10px;
     color: white;
-    top: 70%; left: 55%;
-    background-color: rgba(55, 77, 78, 0.5);
+    top: 70%;
+    right: 25%;
+    /* background-color: rgba(55, 77, 78, 0.5); */
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
     border: 2px solid white;
     border-radius: 15px;
+    z-index: 10;
+
+    text-align: center;
+    width: 20%;
   }
 
   .description5 {
@@ -107,10 +121,11 @@
     background-color: rgba(55, 77, 78, 0.5);
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
-    line-height: normal;
+    line-height: 120%;
     width: 80%;
     border-radius: 15px;
     text-align: center;
+    z-index: 10;
   }
 
   .venue5 {
@@ -120,28 +135,36 @@
     bottom: 10%;
     right: 10%;
     left: 10%;
-    background-color: rgba(55, 77, 78, 0.5);
+    /* background-color: rgba(55, 77, 78, 0.5); */
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
     text-align: center;
+    z-index: 10;
   }
 
   .shape5-1 {
     position: absolute;
     bottom: 10%;
     right: 10%;
-    left: 10%;
-    width: 80%;
+    left: 20%;
+    width: 60%;
     height: 100px;
-    background-color: rgba(255, 0, 0, 0.5);
+    /* background-color: rgba(0, 255, 234, 0.5); */
+    border-radius: 15px;
+    border: 2px solid white;
+    z-index: 0;
   }
 
   .shape5-2 {
     position: absolute;
-    bottom: 10%; right: 10%;
-    width: 100px; height: 10px;
+    bottom: 11%;
+    left: 18%;
+    right: 18%;
+    width: 64%;
+    height: 70px;
     border-radius: 10px;
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(52, 87, 88, 0.384);
+    z-index: 1;
   }
 
 </style>
@@ -150,9 +173,9 @@
   <img src="https://tack.plus/media/Add_media/bg5.png" alt="Template Image">
   <!-- <img class="overlay5" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay5 Image"> -->
   <div class="content-container">
-    <div class="title5">MEN&#x27;S MEETING</div>
+    <div class="title5">MEN&#x27;S MEETING JANUARY  font-size: 4vw; font-size: 4vw; font-size: 4vw;</div>
     <div class="date5">18th July 2024</div>
-    <div class="time5">7 am to 10 am</div>
+    <div class="time5">7 am</div>
     <div class="description5"><pre>Agenda:
 Senior Pastor&#x27;s Breakfast
 Entry is Free
