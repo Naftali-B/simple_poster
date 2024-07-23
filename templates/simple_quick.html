@@ -181,41 +181,7 @@
 
 
 
-    <script> // for search
-        document.getElementById("searchDropdown").addEventListener("click", function (event) {
-            var searchDropdownContent = document.querySelector(".search-dropdown-content");
-            searchDropdownContent.style.display = (searchDropdownContent.style.display === "block") ? "none" : "block";
-            event.stopPropagation();
-        });
     
-        document.querySelector(".search-dropdown-content input[type='text']").addEventListener("click", function (event) {
-            event.stopPropagation();
-        });
-    
-        document.addEventListener("click", function (event) {
-            var searchDropdownContent = document.querySelector(".search-dropdown-content");
-            if (event.target.closest(".search-dropdown") === null) {
-                searchDropdownContent.style.display = "none";
-            }
-        });
-    </script>
-
-    <script> // for main menu
-
-        document.getElementById("dropdownBtn").addEventListener("click", function (event) {
-                var dropdownContent = document.querySelector(".dropdown-content");
-                dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-                event.stopPropagation();
-            });
-
-            document.addEventListener("click", function (event) {
-                var dropdownContent = document.querySelector(".dropdown-content");
-                if (event.target.closest(".dropdown") === null) {
-                    dropdownContent.style.display = "none";
-                }
-            });
-
-    </script>
 
 
 </body>

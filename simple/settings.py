@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u^sw#&fo9q6njud2m71zg!s5%4*x9lu%ey_mxzigd4+ynu9n)8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # for dev. To allow all hosts
 
 CSRF_TRUSTED_ORIGINS = ["https://ab2c-102-217-67-204.ngrok-free.app", "https://5c6fb0a4204278cd3ea84cd622fae886.serveo.net", "https://smee.io/zLBDa0fyiVBt3y"]
 
@@ -47,12 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 ]
 
-# AUTH_USER_MODEL = 'core.User'
-
-# AUTHENTICATION_BACKENDS = [
-#     'core.authentication.backends.CustomUserBackend',
-#     # 'django.contrib.auth.backends.ModelBackend',  # Default Django backend
-# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
