@@ -43,6 +43,8 @@
 
   .content-container4 pre {
     font-family: 'OpenSans-Bold' , sans-serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   .title4 {
@@ -52,7 +54,7 @@
     top: 15%;
     left: 10%;
     background-color: rgba(55, 77, 78, 0);
-    font-size: 6vw;
+    font-size: 60px;
     font-family: 'OpenSans-Bold' , sans-serif;
 
     line-height: 1.2;
@@ -162,15 +164,31 @@
 
 </style>
 
+
 <div class="square4">
   <img src="https://tack.plus/media/Add_media/pexels-photo-129731.webp" alt="Template Image">
-  <img class="overlay4" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay4 Image">
+  <img class="overlay5" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay5 Image">
   <div class="content-container4">
-    <div class="title4">{{title}}</div>
-    <div class="date4">{{date}}</div>
-    <div class="time4">{{time}}</div>
-    <div class="description4"><pre>{{description}}</pre></div>
-    <div class="venue4">{{venue}}</div>
+    {% if title %}
+      <div class="title4">{{title}}</div>
+    {% endif %}
+
+    {% if date %}
+      <div class="date4">{{date}}</div>
+    {% endif %}
+
+    {% if time %}
+      <div class="time4">{{time}}</div>
+    {% endif %}
+
+    {% if description %}
+      <div class="description4"><pre>{{description}}</pre></div>
+    {% endif %}
+
+    {% if venue %}
+      <div class="venue4">{{venue}}</div>
+    {% endif %}
+
     <div class="shape4-1"></div>
     <div class="shape4-2"></div>
   </div>

@@ -43,6 +43,8 @@
 
   .content-container5 pre {
     font-family: 'OpenSans-Bold' , sans-serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   .title5 {
@@ -52,7 +54,7 @@
     top: 15%;
     left: 10%;
     background-color: rgba(55, 77, 78, 0);
-    font-size: 6vw;
+    font-size: 60px;
     font-family: 'OpenSans-Bold' , sans-serif;
 
     line-height: 1.2;
@@ -77,7 +79,7 @@
     padding: 10px;
     color: white;
     top: 70%;
-    left: 25%;
+    left: 23%;
     /* background-color: rgba(55, 77, 78, 0.5); */
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
@@ -86,7 +88,7 @@
     z-index: 10;
 
     text-align: center;
-    width: 20%;
+    min-width: 22%;
   }
 
   .time5 {
@@ -94,7 +96,7 @@
     padding: 10px;
     color: white;
     top: 70%;
-    right: 25%;
+    right: 23%;
     /* background-color: rgba(55, 77, 78, 0.5); */
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
@@ -103,14 +105,14 @@
     z-index: 10;
 
     text-align: center;
-    width: 20%;
+    min-width: 22%;
   }
 
   .description5 {
     position: absolute;
     padding: 10px;
     color: white;
-    top: 40%; left: 10%;
+    top: 35%; left: 10%;
     background-color: rgba(55, 77, 78, 0.5);
     font-family: 'OpenSans-Bold' , sans-serif;
     font-size: 33px;
@@ -143,7 +145,7 @@
     width: 60%;
     height: 100px;
     /* background-color: rgba(0, 255, 234, 0.5); */
-    border-radius: 15px;
+    border-radius: 50px;
     border: 2px solid white;
     z-index: 0;
   }
@@ -166,11 +168,26 @@
   <img src="https://tack.plus/media/Add_media/bg5.png" alt="Template Image">
   <!-- <img class="overlay5" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay5 Image"> -->
   <div class="content-container5">
-    <div class="title5">{{title}}</div>
-    <div class="date5">{{date}}</div>
-    <div class="time5">{{time}}</div>
-    <div class="description5"><pre>{{description}}</pre></div>
-    <div class="venue5">{{venue}}</div>
+    {% if title %}
+      <div class="title5">{{title}}</div>
+    {% endif %}
+
+    {% if date %}
+      <div class="date5">{{date}}</div>
+    {% endif %}
+
+    {% if time %}
+      <div class="time5">{{time}}</div>
+    {% endif %}
+
+    {% if description %}
+      <div class="description5"><pre>{{description}}</pre></div>
+    {% endif %}
+
+    {% if venue %}
+      <div class="venue5">{{venue}}</div>
+    {% endif %}
+
     <div class="shape5-1"></div>
     <div class="shape5-2"></div>
   </div>
