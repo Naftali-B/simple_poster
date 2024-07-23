@@ -1,1 +1,2 @@
+Pillow
 pip install --upgrade convertapi

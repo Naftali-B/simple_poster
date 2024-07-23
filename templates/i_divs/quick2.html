@@ -1,66 +1,157 @@
 <style>
   .square2 {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
-    overflow: hidden;
-    /* background-color: #f0f0f02 */
-  }
-
-  .square2 img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the container without distortion */
-  }
-
-  .content-container2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*padding: 2%;  Add padding for spacing */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    /* aspect-ratio: 1 / 1; */
-  }
-
-  .title2,
-  .date2,
-  .time2,
-  .description2,
-  .venue2 {
-    position: absolute;
-    color: white;
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-  }
-
-  .title2 { top: 10%; left: 10%; }
-  .date2 { top: 20%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
-  .time2 { top: 30%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
-  .description2 { top: 40%; left: 10%; font-family: 'Varela Round', sans-serif; background-color: rgba(55, 77, 78, 0.5); }
-  .venue2 { top: 80%; left: 40%; background-color: rgba(55, 77, 78, 0.5); }
-
-  .shape01, .shape02 {
-    position: absolute;
-    background-color: rgba(255, 0, 0, 0.5);
-  }
-  .shape01 { bottom: 20%; right: 10%; width: 100px; height: 100px; }
-  .shape02 { bottom: 10%; right: 10%; width: 100px; height: 10px; border-radius: 10px; }
-</style>
+     position: relative;
+     width: 100%;
+     padding-top: 100%; /* 1:1 Aspect Ratio */
+     overflow: hidden;
+     /* background-color: #ff0000; */
+   }
+ 
+   .square2 img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+ 
+   .overlay2 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     opacity: 0.5;
+   }
+ 
+   .content-container2 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+   }
+ 
+   .content-container2 pre {
+     font-family: 'OpenSans-Bold', sans-serif;
+     white-space: pre-wrap;
+     word-wrap: break-word;
+   }
+ 
+   .title2 {
+     position: absolute;
+     padding: 10px;
+     color: rgb(49, 0, 0);
+     top: 25%;
+     left: 20%;
+     right: 20%;
+     border-radius: 130px;
+     font-size: 60px;
+     font-family: 'OpenSans-Bold', sans-serif;
+     line-height: 1.2;
+     overflow: hidden;
+     max-width: 60%;
+     max-height: 20%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     z-index: 10;
+   }
+   
+   .date2 {
+     position: absolute;
+     padding: 10px;
+     color: rgb(0, 0, 0);
+     bottom: 5%;
+     left: 35%;
+     font-family: 'OpenSans-Bold', sans-serif;
+     font-size: 30px;
+     border: 2px solid rgb(255, 0, 0);
+     border-radius: 50px;
+     z-index: 10;
+     text-align: center;
+     width: 10%;
+     height: 10%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+ 
+   .time2 {
+     position: absolute;
+     padding: 10px;
+     color: rgb(0, 0, 0);
+     bottom: 5%;
+     right: 35%;
+     background-color: rgba(55, 77, 78, 0.5);
+     font-family: 'OpenSans-Bold', sans-serif;
+     font-size: 30px;
+     border: 2px solid rgb(255, 0, 0);
+     border-radius: 50px;
+     z-index: 10;
+     text-align: center;
+     width: 10%;
+     height: 10%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+ 
+   .description2 {
+     position: absolute;
+     padding: 1%;
+     color: rgb(0, 0, 0);
+     top: 45%;
+     left: 20%;
+     font-family: 'OpenSans-Bold', sans-serif;
+     font-size: 33px;
+     line-height: 120%;
+     width: 58%;
+     max-height: 25%;
+     overflow: hidden;
+     border-radius: 139px;
+     text-align: center;
+     z-index: 10;
+   }
+ 
+   .venue2 {
+     position: absolute;
+     padding: 25px;
+     color: white;
+     bottom: 20%;
+     right: 25%;
+     left: 25%;
+     background-color: rgba(55, 77, 78, 0.5);
+     border-radius: 50px;
+     font-family: 'OpenSans-Bold', sans-serif;
+     font-size: 33px;
+     text-align: center;
+     z-index: 10;
+   }
+ 
+   .shape2-1 {
+     position: absolute;
+     bottom: 0%;
+     right: 10%;
+     left: 20%;
+     width: 60%;
+     height: 1%;
+     background-color: rgba(0, 255, 234, 0.5);
+     z-index: 0;
+   }
+ </style>
 
 <div class="square2">
   <img src="https://tack.plus/media/Add_media/2back_img-100.jpg" alt="Template Image">
-  <div class="content-container">
-    <div class="title2">{{title2}}</div>
-    <div class="date2">{{date2}}</div>
-    <div class="time2">{{time2}}</div>
-    <div class="description2"><pre>{{description2}}</pre></div>
-    <div class="venue2">{{venue2}}</div>
+  <div class="content-container2">
+    <div class="title2">{{title}}</div>
+    <div class="date2">{{date}}</div>
+    <div class="time2">{{time}}</div>
+    <div class="description2"><pre>{{description}}</pre></div>
+    <div class="venue2">{{venue}}</div>
     <div class="shape01"></div>
     <div class="shape02"></div>
   </div>

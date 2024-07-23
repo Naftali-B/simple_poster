@@ -1,6 +1,6 @@
 import traceback
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, FileResponse, Http404, HttpResponseRedirect
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageOps
 import io
 import requests # to fetch the image from the URL
@@ -61,7 +61,7 @@ def generate_poster(request):
         pass
 
     try:
-        rendered_html = render_to_string(html_file, context_data) # html_file is like quick.html
+        rendered_html = render_to_string(html_file, context_data)
 
         quick_temps_dir = os.path.join(settings.BASE_DIR, 'quick_temps')
         if not os.path.exists(quick_temps_dir):
@@ -76,36 +76,54 @@ def generate_poster(request):
         with open(temp_html_path, 'w') as temp_html_file:
             temp_html_file.write(rendered_html)
 
-        # convertapi.api_secret = 'FTgSGuFdVbvWNEfF'
-        # result = convertapi.convert('jpg', {
-        #     'File': temp_html_path
-        # }, from_format='html').save_files(str(quick_temps_dir))
+        convertapi.api_secret = 'FTgSGuFdVbvWNEfF'
+        result = convertapi.convert('jpg', {
+            'File': temp_html_path
+        }, from_format='html').save_files(str(quick_temps_dir))
 
-        # # os.remove(temp_html_path)
-        # # after download logic
+        # os.remove(temp_html_path) # temp file removal (later)
+
+        # moved to download view
         # file_to_remove = quick_temps_dir / 'quick_temp.jpg'
         # if file_to_remove.exists():
         #     os.remove(file_to_remove)
 
-        # return HttpResponse(buffer, content_type='image/png')
-        # file_url = 'file:///C:/Users/N/Desktop/CREATE/final/simple_poster/templates/quick.html'
-        # return HttpResponseRedirect(file_url)
-
         try:
-            # Path to the local HTML file
-            # file_path = 'C:/Users/N/Desktop/CREATE/final/simple_poster/quick_temps/quick_temp.html'
-            file_path = os.path.join(quick_temps_dir, temp_html_file_name)
-            
-            if not os.path.exists(file_path):
-                return HttpResponse("File not found.", status=404)
-            
-            with open(file_path, 'r', encoding='utf-8') as file:
-                file_content = file.read()
+            # # :::::::::::::::::::::  DEBUGGING BY OPENING THE HTML FILE   ::::::::::::::::::::
 
-            return HttpResponse(file_content, content_type='text/html')
+            # # Path to the local HTML file
+            # file_path = os.path.join(quick_temps_dir, temp_html_file_name)
+            
+            # if not os.path.exists(file_path):
+            #     return HttpResponse("File not found.", status=404)
+            
+            # # with open(file_path, 'r', encoding='utf-8') as file:
+            # #     file_content = file.read()
+
+            # import chardet
+            # # Detect the encoding
+            # with open(file_path, 'rb') as rawdata:
+            #     result = chardet.detect(rawdata.read(10000))
+
+            # # Read the file with the detected encoding
+            # encoding = result['encoding']
+            # with open(file_path, 'r', encoding=encoding) as file:
+            #     file_content = file.read()
+
+            # return HttpResponse(file_content, content_type='text/html')
+
+            # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            # :::::::::::::::: DOWNLOADING THE GENERATED POSTER ::::::::::::::::
+            temp_jpg_file_name = f"{base_name}_temp.jpg"
+            image_file_path = os.path.join(quick_temps_dir, temp_jpg_file_name)
+            if os.path.exists(image_file_path):
+                response = FileResponse(open(image_file_path, 'rb'), content_type='image/jpeg')
+                response['Content-Disposition'] = 'attachment; filename="my_created_poster.jpg"'
+                return response
+            else:
+                raise Http404("File not found")
         
         except Exception as e:
-            # Print detailed traceback for debugging
             print(f"Error generating poster: {traceback.format_exc()}")
             return HttpResponse("Error generating poster", status=500)
 
@@ -115,7 +133,19 @@ def generate_poster(request):
         print(f"Error generating poster!: {traceback.format_exc()}")
         return HttpResponse("Error generating poster!", status=500)
     
-# # Pillow library example
+# for use when download button leads to an intermidiate page first,
+# example if you are to introduce some fee per download.
+def download(request, temp_jpg_file_name):
+    quick_temps_dir = os.path.join(settings.BASE_DIR, 'quick_temps')
+    file_path = os.path.join(quick_temps_dir, temp_jpg_file_name)
+    if os.path.exists(file_path):
+        response = FileResponse(open(file_path, 'rb'), content_type='image/jpeg')
+        response['Content-Disposition'] = 'attachment; filename="my_created_poster.jpg"'
+        return response
+    else:
+        raise Http404("File not found")
+    
+# # Pillow library example (I ditched pillow because I had to manually define elements positions and deadline for this project was fast appoaching)
 # def generate_poster(request):
 #     bg_image_url = request.GET.get('bg_image_url')
 #     overlay_img_url = request.GET.get('overlay_img_url')

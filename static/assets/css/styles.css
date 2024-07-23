@@ -51,3 +51,7 @@ body {
     max-width: 300px;
     border-radius: 10px;
 }
+
+.details-form {
+    margin: 20px;
+  }

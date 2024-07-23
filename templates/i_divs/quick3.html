@@ -1,67 +1,206 @@
 <style>
   .square3 {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
-    overflow: hidden;
-    /* background-color: #f0f0f0; */
-  }
+     position: relative;
+     width: 100%;
+     padding-top: 100%; /* 1:1 Aspect Ratio */
+     overflow: hidden;
+     /* background-color: #ff0000; */
+   }
+ 
+   .square3 img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+ 
+   .overlay3 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     opacity: 0.5;
+   }
+ 
+   .content-container3 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     /*padding: 2%;  Add padding for spacing */
+     /*box-sizing: border-box;  Include padding and border in element's total width and height */
+     /* aspect-ratio: 1 / 1; */
+     /* display: flex;
+     justify-content: center;
+     align-items: center; */
+   }
+ 
+   .content-container3 pre {
+     font-family: 'OpenSans-Bold' , sans-serif;
+     white-space: pre-wrap;
+     word-wrap: break-word;
+   }
+ 
+   .title3 {
+     position: absolute;
+     padding: 10px;
+     color: white;
+     top: 25%;
+     left: 20%;
+     right: 20%;
+     /* background-color: rgba(55, 77, 78, 0.596); */
+     border-radius: 130px;
+     font-size: 40px;
+     font-family: 'OpenSans-Bold' , sans-serif;
+ 
+     line-height: 1.2;
+     overflow: hidden;
+     max-width: 60%;
+     max-height: 20%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     z-index: 10;
+   }
+ 
+   /* .date_time5 {
+     position: relative;
+     display: flex;
+     justify-content: space-between;
+     width: 90%;
+     top: 70%;
+     left: 5%;
+   } */
+   
+   
+ 
+   .description3 {
+     position: absolute;
+     padding: 1%;
+     color: white;
+     top: 45%;
+     left: 20%;
+     /* background-color: rgba(55, 77, 78, 0.5); */
+     font-family: 'OpenSans-Bold' , sans-serif;
+     font-size: 33px;
+     line-height: 120%;
+     width: 58%;
+     max-height: 25%;
+     overflow: hidden;
+     border-radius: 139px;
+     text-align: center;
+     z-index: 10;
+   }
+ 
+   .venue3 {
+     position: absolute;
+     padding: 10px;
+     color: white;
+     bottom: 20%;
+     /* right: 25%; */
+     left: 22%;
+     background-color: rgba(255, 255, 255, 0.5);
+     /* border: 1px solid white; */
+     border-radius: 50px;
+     font-family: 'OpenSans-Bold' , sans-serif;
+     font-size: 33px;
+     color: #000;
+     text-align: center;
+     z-index: 10;
+   }
 
-  .square3 img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the container without distortion */
-  }
+   .date3 {
+     position: absolute;
+     padding: 10px;
+     color: rgb(0, 0, 0);
+     bottom: 20%;
+     /* right: 25%; */
+     left: 45%;
+     background-color: rgba(255, 255, 255, 0.5);
+     /* border: 1px solid white; */
+     border-radius: 50px;
+     font-family: 'OpenSans-Bold' , sans-serif;
+     font-size: 33px;
+     color: #000;
+     text-align: center;
+     z-index: 10;
+   }
 
-  .content-container3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*padding: 2%;  Add padding for spacing */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    /* aspect-ratio: 1 / 1; */
-  }
-
-  .title3,
-  .date3,
-  .time3,
-  .description3,
-  .venue3 {
-    position: absolute;
-    color: white;
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-  }
-
-  .title3 { top: 10%; left: 10%; }
-  .date3 { top: 20%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
-  .time3 { top: 30%; left: 10%; background-color: rgba(55, 77, 78, 0.5); }
-  .description3 { top: 40%; left: 10%; font-family: 'Varela Round', sans-serif; background-color: rgba(55, 77, 78, 0.5); }
-  .venue3 { top: 80%; left: 40%; background-color: rgba(55, 77, 78, 0.5); }
-
-  .shape01, .shape02 {
-    position: absolute;
-    background-color: rgba(255, 0, 0, 0.5);
-  }
-  .shape01 { bottom: 20%; right: 10%; width: 100px; height: 100px; }
-  .shape02 { bottom: 10%; right: 10%; width: 100px; height: 10px; border-radius: 10px; }
-</style>
+   .time3 {
+     position: absolute;
+     padding: 10px;
+     color: rgb(0, 0, 0);
+     bottom: 20%;
+     /* right: 25%; */
+     right: 20%;
+     background-color: rgba(255, 255, 255, 0.5);
+     /* border: 1px solid white; */
+     border-radius: 50px;
+     font-family: 'OpenSans-Bold' , sans-serif;
+     font-size: 33px;
+     color: #000;
+     text-align: center;
+     z-index: 10;
+   }
+ 
+   .shape3-1 {
+     position: absolute;
+     bottom: 0%;
+     right: 10%;
+     left: 20%;
+     width: 60%;
+     height: 1%;
+     background-color: rgba(0, 255, 234, 0.5);
+     /* border-radius: 50px; */
+     /* border: 2px solid white; */
+     z-index: 0;
+   }
+ 
+   /* .shape1-2 {
+     position: absolute;
+     bottom: 11%;
+     left: 18%;
+     right: 18%;
+     width: 64%;
+     height: 70px;
+     border-radius: 10px;
+     background-color: rgba(52, 87, 88, 0.384);
+     z-index: 1;
+   } */
+ 
+ </style>
 
 <div class="square3">
-  <img src="https://tack.plus/media/Add_media/Noodle_Type_Ramen_Finished_Still_Select_COMP.webp" alt="Template Image">
+  <img src="https://tack.plus/media/Add_media/21.jpg" alt="Template Image">
+  <!-- <img class="overlay1" src="https://tack.plus/media/Add_media/grungeOVERLAY.webp" alt="Template Image"> -->
   <div class="content-container3">
-    <div class="title3">{{title}}</div>
-    <div class="date3">{{date}}</div>
-    <div class="time3">{{time}}</div>
-    <div class="description3"><pre>{{description}}</pre></div>
-    <div class="venue3">{{venue}}</div>
-    <div class="shape01"></div>
-    <div class="shape02"></div>
+    {% if title %}
+      <div class="title3">{{ title }}</div>
+    {% endif %}
+
+    {% if date %}
+      <div class="date3">{{date|truncatechars:9}}</div>
+    {% endif %}
+
+    {% if time %}
+      <div class="time3">{{time|truncatechars:6}}</div>
+    {% endif %}
+
+    {% if description %}
+      <div class="description3"><pre>{{description}}</pre></div>
+    {% endif %}
+
+    {% if venue %}
+      <div class="venue3">{{venue}}</div>
+    {% endif %}
+
+    <div class="shape3-1"></div>
+    <div class="shape3-2"></div>
   </div>
 </div>
