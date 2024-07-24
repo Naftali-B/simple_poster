@@ -31,7 +31,8 @@
         .content-container3,
         .content-container4,
         .content-container5,
-        .content-container6 {
+        .content-container6,
+        .content-container7 {
             transform: scale(0.35);
             transform-origin: top left;
             /* margin-left: -20px;
@@ -162,6 +163,24 @@
             <p></p>
             <span>
               <a href="{% url 'generate_poster' %}?file=i_divs/quick6.html">
+                <button class="download-btn">Download</button>
+              </a>
+            </span>
+            <span>
+              <a href="{% url 'home' %}">
+                  <button class="download-btn">Variants</button>
+              </a>
+            </span>
+            <p></p>
+          </div>
+
+          <div class="simple-item">
+            <div class="poster-container">
+              {% include 'i_divs/quick7.html' %}
+            </div>
+            <p></p>
+            <span>
+              <a href="{% url 'generate_poster' %}?file=i_divs/quick7.html">
                 <button class="download-btn">Download</button>
               </a>
             </span>

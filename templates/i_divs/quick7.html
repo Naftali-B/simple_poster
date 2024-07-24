@@ -1,6 +1,6 @@
 
 <style>
- .square6 {
+ .square7 {
     position: relative;
     width: 100%;
     padding-top: 100%; /* 1:1 Aspect Ratio */
@@ -8,7 +8,7 @@
     /* background-color: #ff0000; */
   }
 
-  .square6 img {
+  .square7 img {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
     object-fit: cover;
   }
 
-  .overlay6 {
+  .overlay7 {
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@
     opacity: 0.5;
   }
 
-  .content-container6 {
+  .content-container7 {
     position: absolute;
     top: 0;
     left: 0;
@@ -41,13 +41,13 @@
     align-items: center; */
   }
 
-  .content-container6 pre {
+  .content-container7 pre {
     font-family: 'OpenSans-Bold' , sans-serif;
     white-space: pre-wrap;
     word-wrap: break-word;
   }
 
-  .title6 {
+  .title7 {
     position: absolute;
     padding: 10px;
     color: white;
@@ -78,7 +78,7 @@
     left: 5%;
   } */
   
-  .date6 {
+  .date7 {
     position: absolute;
     padding: 10px;
     color: white;
@@ -100,7 +100,7 @@
     align-items: center;
   }
 
-  .time6 {
+  .time7 {
     position: absolute;
     padding: 10px;
     color: white;
@@ -122,7 +122,7 @@
     align-items: center;
   }
 
-  .description6 {
+  .description7 {
     position: absolute;
     padding: 1%;
     color: white;
@@ -140,7 +140,7 @@
     z-index: 10;
   }
 
-  .venue6 {
+  .venue7 {
     position: absolute;
     /* padding: 25px; */
     color: white;
@@ -157,7 +157,7 @@
     z-index: 10;
   }
 
-  .shape6-1 {
+  .shape7-1w {
     position: absolute;
     bottom: 0%;
     right: 10%;
@@ -184,31 +184,31 @@
 
 </style>
 
-<div class="square6">
-  <img src="https://tack.plus/media/Add_media/SAMPLES_1.png" alt="Template Image">
+<div class="square7">
+  <img src="https://tack.plus/media/Add_media/7.jpg" alt="Template Image">
   <!-- <img class="overlay5" src="https://cdn.prod.website-files.com/64bfd4a79278e7a8fe5b8d39/64bfd4a79278e7a8fe5b8d6f_photo_founders%20(1).png" alt="overlay5 Image"> -->
-  <div class="content-container6">
-    
-      <div class="title6">Monday Total Lockdown</div>
-    
+  <div class="content-container7">
+    {% if title %}
+      <div class="title7">{{title}}</div>
+    {% endif %}
 
-    
-      <div class="date6">18/06/2024</div>
-    
+    {% if date %}
+      <div class="date7">{{date}}</div>
+    {% endif %}
 
-    
-      <div class="time6">7-10 am</div>
-    
+    {% if time %}
+      <div class="time7">{{time}}</div>
+    {% endif %}
 
-    
-      <div class="description6"><pre>I think all Kenyan but youth and old to talk lesson kujeni kujeni come all fikenificant this is amazing I love how I&#x27;m able to just read it out</pre></div>
-    
+    {% if description %}
+      <div class="description7"><pre>{{description}}</pre></div>
+    {% endif %}
 
-    
-      <div class="venue6">Nairobi Garage</div>
-    
+    {% if venue %}
+      <div class="venue7">{{venue}}</div>
+    {% endif %}
 
-    <div class="shape6-1"></div>
-    <div class="shape6-2"></div>
+    <div class="shape7-1"></div>
+    <div class="shape7-2"></div>
   </div>
 </div>
