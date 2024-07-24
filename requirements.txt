@@ -1,2 +1,4 @@
+Django
 Pillow
+convertapi
 pip install --upgrade convertapi
